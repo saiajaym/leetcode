@@ -25,6 +25,9 @@ Input: s = ""
 Output: 0
 */
 
+/*
+//Uses two pointers sliding window
+
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
@@ -46,5 +49,22 @@ public:
         
         return m;
         
+    }
+};
+
+
+*/
+
+class Solution {
+public:
+   int lengthOfLongestSubstring(string s) {
+        vector<int> dict(128, -1);
+        int start=-1, mx=0;
+       for(int i=0;i<s.size();i++){
+           if(dict[s[i]]>start) start = dict[s[i]];
+           dict[s[i]] = i;
+           mx = max(mx,i-start);
+       }
+       return mx;
     }
 };
