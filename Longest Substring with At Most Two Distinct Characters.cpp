@@ -41,3 +41,29 @@ public:
         
     }
 };
+
+/*
+//simplified without set
+
+class Solution {
+public:
+    int lengthOfLongestSubstringTwoDistinct(string s) {
+        int mx=0,l=0,r=-1,ctr=0,n=s.size();
+        map<char,int> mp;
+        
+        while(r<n){
+            if(mp[s[++r]]++ == 0) ctr++;
+            mx=max(mx,r-l);
+            
+            while(ctr>2){
+                if(--mp[s[l++]] == 0) ctr--;
+            }
+        }
+        return mx;
+        
+        
+    }
+};
+
+
+*/
